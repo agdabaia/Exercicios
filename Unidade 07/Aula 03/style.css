@@ -1,0 +1,14 @@
+/* Iniciando meu primeiro arquivo CSS */
+
+div.profile__header {
+    border: solid 1px black;
+    background-color: aqua;
+}
+
+a {
+    font-weight: bold;
+}
+
+a.destaque {
+    color: red;
+}

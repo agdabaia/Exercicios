@@ -1,0 +1,32 @@
+/* Iniciando meu primeiro arquivo CSS */
+
+body {
+    color: #444;
+    background: rgb(0,200,127);
+    background: radial-gradient(circle, rgba(0,200,127,1) 25%, rgba(196,255,88,1) 100%);
+    min-height: 100vh;
+}
+.container {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+}
+
+.destaque {
+    color: red;
+}
+
+.profile__about div {
+    background-color: #8d5fe9;
+    padding: 16px;
+    margin: 10px;
+}
+
+.profile__about .destaque {
+    color: white;
+}
+
+a.destaque {
+    color: blue;
+}

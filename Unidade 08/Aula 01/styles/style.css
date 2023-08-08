@@ -1,0 +1,34 @@
+/* Iniciando meu primeiro arquivo CSS */
+
+.container {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+}
+
+.destaque {
+    color: red;
+}
+
+div.profile__about {
+    display: flex;
+    justify-content: center;
+    width: 650px;
+}
+
+.profile__about div {
+    background-color: #8d5fe9;
+    height: 500px;
+    width: 200px;
+    padding: 16px;
+    margin: 10px;
+}
+
+.profile__about .destaque {
+    color: white;
+}
+
+a.destaque {
+    color: blue;
+}

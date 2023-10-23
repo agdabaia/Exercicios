@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidade 19 - Aula 03</title>
+</head>
+<body>
+    <script>
+
+        // Array ou Vetor
+        var nomes = ["André", "Thiago", "Maria", "João"];
+
+        // Removendo o último
+        nomes.pop();
+        console.log(nomes);
+
+        // Adicionando valores
+        nomes.push("Carla");
+        console.log(nomes);
+
+        // Ordenando valores
+        nomes.sort();
+        console.log(nomes);
+
+         // Criando objetos
+         let contato = {
+            nome: 'João',
+            telefone: '1120380302',
+            email: 'joao@joao.com.br'
+         };
+
+         // Visualizando valores de objetos
+         console.log(contato.nome);
+         console.log(contato.telefone);
+         console.log(contato.email);
+
+         // Adicionando um campo ao objeto
+         contato.endereco = "Rua da Minha Casa, 1";
+
+         // Removendo um campo do objeto
+         delete contato.telefone;
+         
+         console.log(contato);
+
+    </script>
+</body>
+</html>

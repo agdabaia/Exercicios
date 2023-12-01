@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example</title>
+</head>
+<body>
+  <style>
+    form input {
+      display: block;
+      margin-bottom: 16px;
+    }
+​
+    form label {
+      display: inline;
+    }
+  </style>
+  <form action="http://127.0.0.1:5000/" method="post">
+    
+    <label for="nome">Nome</label>
+    <input type="text" name="nome" placeholder="Digite seu nome">
+​
+    <label for="idade">Idade</label>
+    <input type="text" name="idade" placeholder="Digite sua idade">
+​
+    <label for="email">E-mail</label>
+    <input type="text" name="email" placeholder="Digite seu email">
+    
+    <label><input type="radio" name="nivel" value="Iniciante"> Iniciante</label>
+    <label><input type="radio" name="nivel" value="Intermediário"> Intermediário</label>
+    <label><input type="radio" name="nivel" value="Avançado"> Avançado</label>
+​
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>

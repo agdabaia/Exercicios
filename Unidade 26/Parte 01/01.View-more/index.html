@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View More</title>
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/view-more.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <h1>View More</h1>
+
+    <div class="view-more">
+      <div class="view-more__content">
+        <p>
+          This essay, Wikipedia:Advanced text formatting or Advanced typesetting, describes many techniques to control (or adjust) the alignment of text on a page. For people with professional backgrounds in typesetting, this essay is not intended as a joke, but rather, an advancement over the default typesetting of stub articles. Techniques listed here are still intended for general readers.
+    
+          Moving vanity-boxes lower in articles
+          Perhaps the single greatest improvement to many articles is to lower those grandstanding top tag-boxes that proclaim, "This article is defective: fix immediately". Most of those tag-box templates allow a parameter "|section" when lowering the tag-box further down the page. For example: {{RefImprove|section|date=November 2023}}. Moving a distracting tag-box can vastly improve the readability for readers, who might otherwise become alarmed and distracted by a 2-year-old gripe box someone threw on the page, unopposed, years ago, giving the impression that the tag-box must be read to avoid critically dangerous information in an article.
+          
+          Setting wrap-indent by tag {{wbr}}
+          The template {{wbr}} can be used to wrap before non-breaking spaces, as {{wbr}}&nbsp; at the wrap position, which allows the wrapped portion to be indented by a non-breaking space. See table:
+          
+          Text	Typical wrapping	With​ {{wbr}}
+          Rhianna Lea Doe	Rhianna Lea Doe	Rhianna​  Lea Doe
+          486 plus 6 at-large	486 plus  6 at-large	486 plus​  6 at-large
+          Advanced  typesetting	Advanced typesetting	Advanced​  typesetting
+          More indentation can be set by additional non-breaking spaces; this is made easier (and arguably more readable) with the {{nbsp}} template, using the 2nd parameter to specify how many &nbsp; characters to insert: Rhianna{{wbr}}{{spaces|2}}Lea. However, the extra space might seem excessive between some words (unless all nearby spaces are doubled). The width to trigger a wrap-indent depends on the user's browser TextSize zoom level, where larger levels trigger the wrapping more often, and a single space indents more at higher zoom. This type of space-adjusting by inserting individual extra space characters is not generally recommended while editing Wikipedia articles.
+          
+          This technique has been previously suggested for use to wrap and indent text within infobox lists (where a non-indented wrapped line might be misinterpreted as 2 entries, rather than as a long entry which has wrapped onto the next line), this is not an appropriate technique. Instead, use the {{indented plainlist}} template, which creates semantically-correct HTML lists and uses CSS to control the indentation of list items:
+          
+          Example use of {{indented plainlist}}
+          Wikitext	Output
+          {{indented plainlist|
+          * A long list item that will likely wrap
+          * Another list item that will also wrap
+          * A short list item
+          * And finally another long list item
+          }}
+          A long list item that will likely wrap
+          Another list item that will also wrap
+          A short list item
+          And finally another long list item
+          The <wbr /> HTML tag also works with older browsers, but not in Internet Explorer since version 7. The {{wbr}} template relies on the combination of the <wbr /> HTML tag and the U+200B ZERO WIDTH SPACE character (which is compatible with IE prior to version 7). See Template:wbr § Technical details for more details.
+          
+          Avoiding wrap of end-quote or apostrophe
+          One of the most troublesome typesetting glitches is the wrapping of the last word in a quotation onto a second line, when followed by parentheses or brackets:
+          
+          Typical wrapping of end-quotemark:
+          "The quick brown fox jumped over the lazy
+          dogs" (typewriter exercise).
+          There are several methods to allow the end-word to stay on the same line, without wrapping. Perhaps the most common fix is to append the blank-code &#160; (or even a comma) after the end quotemark so that it will not wrap too soon:
+          
+          Wrapping of end-quotemark plus &#160:
+          "The quick brown fox jumped over the lazy dogs"  (typewriter exercise).
+          To fix wrapping, the word dogs is followed by &#160; (after the quotemark: ... dogs"&#160;). Because thousands of articles begin with formally defining a term, with stating a quoted meaning, the forced wrapping of end quotemarks has become a major typesetting nightmare in Wikipedia. The wrapping of end-quotes grew to be so common, during 2005–2009, that it has become instinctive to expect an end-quote to almost always be prematurely wrapped onto a second line, and the first line to be truncated as bizarrely too short. The premature wrapping of the 18-character phrase "dogs...typewriter" is typical, not an exaggeration of how much text gets forced onto the second line in many articles.
+          
+          A similar problem occurs with an end-apostrophe & parentheses:
+          
+          Typical wrapping of end apostrophe:
+          The film 101 Dalmatians concerns all the dalmatians' safety (problem only if a parenthesis after apostrophe).
+          The film 101 Dalmatians concerns all the dalmatians' (there are 100+1 dogs) safety.
+          Wrapping of end-apostrophe plus &160:
+          The film 101 Dalmatians concerns all the dalmatians'  (there are 100+1 dogs) safety.
+          Besides using &#160; other characters, such as comma, semicolon or slash, could be appended after the end quotemark, if they fit the meaning. There might be other situations of forced wrapping in Wikipedia text.
+          
+          Setting small font-size of lesser text
+          Lesser text can be reduced to a smaller font size, such as by using a span-tag:
+          
+          <span style="font-size:88%">German: ''Der Lange-Annoying-Name-der-Dinge''</span>
+          That font-size will shrink the text somewhat: German: Der Lange-Annoying-Name-der-Dinge. A highly irritating problem can be the placement of too much foreign (or off-topic text) in the intro section. Much tangent-level wording should be moved to lower sections. However, the use of a reduced font-size can help minimize the glaring impact of off-topic text. Sizes such as 95% or 92% retain the original font shape; however, sizes of 88% or 85% might be needed. To reduce a larger section of text, consider using the paired <div>...</div> tags (instead of <span>...</span>).
+          
+          The default small text-size, with almost no shape, is selected by <small>aa bb cc xx yy zz</small>, which appears as: aa bb cc xx yy zz. Using <span style="font-family:Georgia;">, to switch from default Arial font to <span style="font-family:Georgia;"> (Georgia font), the small text will appear as: small Georgia-font a b c x y z.
+          
+          Guidelines
+          Editors should avoid manually inserting large and small font sizes into prose. Increased and decreased font size should primarily be produced through automated facilities such as headings or through carefully designed templates. Below is one list of font sizing templates that have been tested and are available if needed:
+          
+          Font size templates viewedit
+          Code for inline content	Code for block content	Size	Result
+          {{small|text}}
+          {{smaller|text}}	{{smalldiv|text}}	85%	text
+          {{resize|text}}	{{resizediv|text}}	90%	text
+          {{midsize|text}}		92%	text
+          none	none	100%	text
+          {{large|text}}
+          {{larger|text}}
+          {{big|text}}	{{largediv|text}}	120%	text
+          {{huge|text}}		180%	text
+          {{resize|x%|text}}	{{resizediv|x%|text}}	custom	varies
+          {{font|size=x%}}		custom	varies
+          Example: {{big|Will make the text here larger}} renders as: Will make the text here larger
+          
+          To put this chart on your User page for reference use: {{font size templates}}
+          
+          Read more: Wikipedia:Manual of Style/Text formatting#Font size.
+          
+          Reducing line-height when wrapping small text
+          A very common problem, when using a smaller font, is the gapping caused by large interline spacing between the lines. A better line-height (for small-font notes) is: 1.3em, such as by:
+          
+          <span style="font-size:88%; line-height: 1.3em;">xxx</span>
+          Such small lines could be used in a lengthy image caption, where the typical caption size would take too much space, for the amount of detailed caption being displayed. Of course, once again, a full solution often involves removing some excess text (from the image caption) to a lower spot on the page, and then referring to the image, such as {{crossref|(see image)}} from that text.
+          
+          Reducing line-height in a quote-box
+          Another use of reduced line-height might be for an indented quote-box, where the smaller line-height might help in emphasizing the quote as being a special text section. For example, using:
+          
+          <span style="font-size:92%; line-height: 1.31em;">xxx</span>
+          Then enclose the text of a quote, such as the following:
+          
+          For scientific endeavor is a natural whole, the parts
+          of which mutually support one another in a way which,
+          to be sure, no one can anticipate.
+                                          – Albert Einstein, Out of My Later Years
+          Sometimes, the setting must be precise, where 1.20em would be too close, or 1.35em would separate lines too much, while 1.31em provides an even balance, for the particular lines in the quotation. Because the line-height is reduced, the effect of the quotation is different than merely indenting the text. Note how the line for author "Einstein" has been indented, far to the right: the new indenter template {{in5|32}} was used to indent across 32 spaces further than the quoted lines: {{in5|32}}–&nbsp;Albert ....
+          
+          Line height of text
+          The line-height of text, in CSS, sets the height of text's line box.[1] On the default desktop skin (Vector) it is set at 1.6 (times the font size) by default for readability.
+          
+          Examples
+          This block of text has line-height 1:
+          
+          Typography (Greek: typos "form", graphein "to write") is the art and technique of setting written subject matter in type using a combination of typeface styles, point sizes, line lengths, line leading, character spacing, and word spacing to produce typeset artwork in physical or digital form.
+          
+          The same block of text set with line-height 1.5 is easier to read:
+          
+          Typography (Greek: typos "form", graphein "to write") is the art and technique of setting written subject matter in type using a combination of typeface styles, point sizes, line lengths, line leading, character spacing, and word spacing to produce typeset artwork in physical or digital form.
+          
+          The same block of text with line-height 2 is again easier to read, but makes less efficient use of vertical page space:
+          
+          Typography (Greek: typos "form", graphein "to write") is the art and technique of setting written subject matter in type using a combination of typeface styles, point sizes, line lengths, line leading, character spacing, and word spacing to produce typeset artwork in physical or digital form.
+          
+          Expanding line-height for song lyrics or poems
+          The opposite technique, of increased line-height, might be used for some indented song lyrics (or poetry), where the larger line-height could help in emphasizing the "double-spaced" appearance of a text section. For example, using:
+          
+          <div style="font-size:92%; line-height: 2.1em;">xxx</div>
+          Then enclose the song lyrics as "xxx", wrapped with <poem>...</poem>, which preserves line-breaking, as follows:
+          
+          "I hear Jerusalem, bells are ringing,
+          Roman cavalry, choirs are singing,
+          "Be my mirror, my sword and shield,
+          My missionairies in a foreign field",
+          For some reason....
+          
+                    —Coldplay, "Viva la Vida"[Note 1]
+          This is coded as:
+          
+          <poem style="font-size:92%; line-height: 2.1em;">I hear Jerusalem, bells are ringing,
+          Roman cavalry, choirs are singing,
+          "Be my mirror, my sword and shield,
+          My missionairies in a foreign field",
+          For some reason....</poem>
+          {{in5|10}}—&nbsp;[[Coldplay]], "[[Viva la Vida]]"<ref>...</ref>
+          In either case, because the line-height is increased, the effect of the quoted text appears similar to having used double-spaced lines in the text. (The lyrics are truncated, to keep them short, per copyright restrictions limiting to 10%, or prohibiting the display of an entire performable unit, of a composition).
+          
+          These examples are shown indented here, to set them off from the explanatory text, but would not be in the actual article. If this effect were desired, it could be done like this, using the {{quote}} template:
+          
+          {{quote
+          |text=<poem style="font-size:92%; line-height: 2.1em;">I hear Jerusalem, bells are ringing,
+          Roman cavalry, choirs are singing,
+          "Be my mirror, my sword and shield,
+          My missionairies in a foreign field",
+          For some reason....</poem>
+          |author=[[Coldplay]]
+          |source="[[Viva la Vida]]"<ref>...</ref>}}
+          Which renders as:
+          
+          I hear Jerusalem, bells are ringing,
+          Roman cavalry, choirs are singing,
+          "Be my mirror, my sword and shield,
+          My missionairies in a foreign field",
+          For some reason....
+          
+          — Coldplay, "Viva la Vida"[Note 1]
+          Word-joining to avoid one-word-per-line
+          Words can be joined by &nbsp; or {{nowrap|xx xx}} to force the words to appear together, on one line. Sometimes text, next to a wide image-box or wide infobox, tends to get squeezed into a narrow column of text. A very narrow column can cause text-wrapping as, sometimes, one-word-per-line, all the way down the entire column. In such cases, by word-joining the first few words of a phrase (such as At&nbsp;the&nbsp;outset or The&nbsp;region&nbsp;covers), the text can be forced down the page, into a wider column, where all the joined-words can fit side by side, across the line. Then, even when the page is viewed in larger browser text-size settings, the joined text will float down to columns where the typesetting looks more logical, rather than the default, of one-word-per-line, in a narrow column. This obviously should only be done with a few words, not long strings of text, or undesirable (and, browser-by-browser, unpredictable) display results will occur.
+          
+          Bold but not too bold
+          Bold-faced text can be softened, or visually thinned, by using dark gray text, rather than typical black, as the text font-color. For example:
+          
+          <span style="color: #666666;">'''One''' and '''Two''' and '''Three'''</span>
+          The dark-gray color (#666666) will appear as:
+          
+          One and Two and Three
+          Compare the bolded text of "One", "Two" and "Three" against the starker contrast of the default boldfacing results:
+          
+          One and Two and Three
+          In Wikipedia, bold-faced text is used, primarily, to highlight words that are:
+          
+          the title of the article, repeated in the lead;
+          alternative names of the article's or section's topic, that redirect to this location;
+          section headings;
+          table headers;
+          terms in glossaries;
+          and a few other special uses.
+          Bold-faced text could be confusing when used in other ways, so the use of a lighter bolded text allows for this style of highlighting, with less ambiguity.
+          
+          Also, other, lively colors could be bolded without much confusion with the article-title words (see color choices in: Web colors). Also see topic below: § Notes).
+          
+          Adjusting spaces for kerning between letters
+          Typically, when using italic text, the spacing after an italic word often will seem too narrow (as a kerning problem), and hence a small amount of extra space could be added after the italic text as &thinsp; to insert a so-called "thin space", or for small text, a &#8202; "hair space" (a normal-width space is too large for this purpose). In many cases, the wording could be phrased so that a comma, or period (full stop) or right parenthesis (curved bracket) follows the italic text, which would also act to widen the spacing at the end of the italic text. Some examples:
+          
+          The book To Kill a Mockingbird  by Harper Lee   ← title followed by &thinsp; then a regular space
+          The overture Romeo and Juliet, by Tchaikovsky   ← title followed by comma: , then a regular space
+          The city of Munich (German: Muenchen) in Bavaria   ← followed by parenthesis: ) then a regular space
+          In particle physics, J p  denotes   ← a &#8202; hair space between {{var|J}} and small superscripted <sup>{{var|p}}</sup>, in turn followed by &thinsp; then a regular space
+          Perhaps the most common adjustment would be to insert &thinsp; after italic text which ends with a tall letter (such as: h, l, t, or any capital, e.g. W). However, by planned phrasing, instead, a comma could be added after italic words to widen the visual spacing after the italicized part.
+          
+          Changing font faces
+          See also: Wikipedia:Typography
+          The MediaWiki markup language supports many HTML tags, including <span style="font-family:Garamond;"> and such. Some of the fonts are:
+          
+          Arial:       This is Arial font (default).
+          Courier:     This is Courier font.
+          Garamond: This is Garamond font.
+          Georgia:     This is Georgia font.
+          Helvetica:   This is Helvetica font.
+          Linux Libertine:   This is Linux Libertine.
+          Noto:   This is Noto Sans.
+          Times New Roman: This is Times New Roman font.
+          Changing font color or span style=color
+          See also: Help:Using colours
+          The MediaWiki markup language supports HTML-style color tags, to change the color of text, such as "<span style="color:gray;">xx</span>". Templates like {{color}} also exist to change text color.
+          
+          To change text colors, some colors are (or see all: Web colors):
+          
+          Darkgreen: This is "darkgreen" font color.
+          Darkred & crimson: This is "darkred" font color and "crimson" here.
+          Blue: This is "blue" font color and "darkblue" here.
+          Darkorange: This is darkorange font color.
+          Chocolate & SaddleBrown: This is "chocolate" font color and "SaddleBrown" here.
+          Gray: This is "gray" font color and "darkgray" here.
+          #515151: Using <span style="color:#515151;"> here.
+          The default color is black (or hex-code #000000). When changing the text color, care must be taken to put the "/" in the end tag, such as "</span>" to reset text color afterward. For an extensive list of hundreds of screen colors, see: Web colors.
+          
+          Undenting/bracketing of text
+          
+          The neutrality of this section is disputed. Relevant discussion may be found on the talk page. Please do not remove this message until conditions to do so are met. (template removal help)
+          Real typesetting software,typically has had simple directives to trigger alignments as left, right, center, or undented (beyond the left-margin line). However, for decades, HTML has had only limited options for easy alignment (one: <center>). A method for undenting the first word of a paragraph is to put the paragraph into a text-table, where the first word (or syllable) is (alone) in column 1, while the other text is in column 2. For example, undenting "Beethoven":
+          
+          Markup	
+          <table cellspacing=0 cellpadding=0><tr><td valign=top>Bee<td>thoven {{in5|16}}composed [[Moonlight Sonata]] while he was losing his hearing.</table>
+          Renders as	
+          Bee	thoven composed Moonlight Sonata
+          while he was losing his hearing.
+          Note the use of both "cellspacing=0 cellpadding=0" so as to not separate the spacing between the first syllable "Bee" and "thoven".
+          
+          A third column can be used to enclose text in outside brackets, then putting the closing-bracket "]" in column 3, as follows:
+          
+          Markup	
+          <table><tr><td valign=top>[<td>This is line 1.<br />Line 2.<td>]</table>
+          Renders as	
+          [	This is line 1.
+          Line 2.	]
+          The original design of the HTML language included presentational markup, such as the <center> tag. However, this type of presentational markup tags has been deprecated in current HTML and XHTML recommendations and is illegal in HTML5. Cascading Style Sheets (CSS) have been encouraged by the World Wide Web Consortium (W3C) for presentational markup and other styling.
+          
+          See also
+          WP:Advanced article editing
+          WP:Advanced footnote formatting
+          WP:Advanced table formatting
+          Notes
+           The lyrics are truncated, to keep them short, per copyright restrictions limiting display to 10%, or prohibiting the display of an entire performable unit, of a composition.
+           "line-height - CSS: Cascading Style Sheets | MDN". Mozilla Developer Network. Retrieved 1 January 2022.
+          vte
+          Wikipedia essays (?)
+          Essays on building, editing, and deleting content
+          Essays on civility
+          Essays on notability
+          Humorous essays
+          About essays      
+        </p>
+      </div>
+
+      <div class="view-more__actions">
+        <button class="view-more-expand">Mostrar mais</button>
+        <button class="view-more-collapse">Mostrar menos</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const viewMoreButtons = document.querySelectorAll('.view-more-expand, .view-more-collapse');
+
+    viewMoreButtons.forEach(button => {
+      button.onclick = (event) => {
+        const holder = button.parentElement.parentElement;
+        holder.classList.toggle('view-more--expand');
+      }
+    });
+  </script>
+</body>
+</html>

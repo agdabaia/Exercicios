@@ -1,0 +1,148 @@
+html * {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+html {
+  background-image: url(../images/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.full-center-center {
+  display: flex;
+  padding: 0 20px;
+  min-width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-center-center:first-child {
+  margin-top: 200px;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  padding: 64px;
+  display: block;
+  margin: 40px 0;
+  max-width: 636px;
+  position: relative;
+  border-radius: 24px;
+  background-color: #ffffff;
+  box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.box-avatar {
+  padding-top: 128px;
+}
+
+.box details:last-child {
+  border-bottom: none;
+}
+
+.box .box__title {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.box .box__title h2 {
+  color: #324054;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;  
+  margin: 0;
+}
+
+.box__avatar {
+  left: 50%;
+  top: -100px;
+  width: 181px;
+  height: 200px;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.box__header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.box__header h1 {
+  color: #324054;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Sora;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.box__header h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #324054;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.box__header p {
+  margin: 0;
+  font-size: 16px;
+  color: #324054;
+}
+
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-list li {
+  border-radius: 16px;
+  background-color: #2D68FE;
+  height: 56px;
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.link-list li a {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  color: #ffffff;
+  text-decoration: none;
+  align-items: center;
+  font-weight: 600;
+  font-size: 16px;
+  justify-content: space-between;
+}
+
+.link-list li a span:last-child {
+  text-align: center;
+  width: 100%;
+}
+
+.link-list li:last-child {
+  margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .box {
+    padding: 40px;
+    padding-top: 140px;
+  }
+
+  .box__header h1 {
+    font-size: 32px;
+  }
+}

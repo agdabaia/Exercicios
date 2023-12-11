@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <link rel="stylesheet" href="./styles/button.css">
+  <link rel="stylesheet" href="./styles/modal.css">
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Modal</h1>
+    <button onclick="openModal('test')">Open</button>
+  </div>
+
+  <div class="modal" id="test" hidden>
+    <div class="modal__backdrop" onclick="closeModal('test')"></div>
+
+    <div class="modal__content">
+      <div class="modal__content__header">
+        <h2>Olá! Eu sou o componente modal</h2>
+      </div>
+
+      <div class="modal__content__body">
+        <p>
+          Os modais concentram a atenção do usuário exclusivamente em uma tarefa
+          ou informação por meio de uma janela que fica no topo do conteúdo da 
+          página. Busque ser objetivo e claro na informação.          
+        </p>
+
+        <p>
+          Os modais concentram a atenção do usuário exclusivamente em uma tarefa
+          ou informação por meio de uma janela que fica no topo do conteúdo da 
+          página. Busque ser objetivo e claro na informação.          
+        </p>
+        
+        <p>
+          Os modais concentram a atenção do usuário exclusivamente em uma tarefa
+          ou informação por meio de uma janela que fica no topo do conteúdo da 
+          página. Busque ser objetivo e claro na informação.          
+        </p>        
+      </div>
+
+      <div class="modal__content__footer">
+        <button onclick="closeModal('test')">Fechar modal</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/modal.js"></script>
+</body>
+</html>

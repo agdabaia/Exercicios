@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tooltip</title>
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/tooltip.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Tooltip</h1>
+  
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has 
+      been the industry's <mark class="tooltip">standard<span>Texto para aparecer dentro do tooltip, legal pra caramba</span></mark> 
+      dummy text ever since the 1500s, when an unknown printer took
+      a galley of type and scrambled it to make a type specimen book. It has survived not only 
+      five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+      It was popularised in the <mark class="tooltip">1960s <span>Tooltip para o ano de 1960</span></mark>
+      with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop 
+      publishing software like Aldus PageMaker including versions of Lorem Ipsum.    
+    </p>
+  </div>
+
+  <script>
+    const tooltipVisibleClass = 'tooltip--visible';
+    const marks = document.querySelectorAll('mark.tooltip');
+
+    marks.forEach(item => {
+      item.onclick = (event) => {
+        event.stopPropagation();
+        const span = item.querySelector(':scope > span');
+
+        if (span) {
+          span.classList.add(tooltipVisibleClass);
+        }
+
+
+        window.addEventListener('click', (event) => {
+          if (event.target !== item) {
+            span.classList.remove(tooltipVisibleClass);
+          }
+        }, { once: true });
+      }
+    });
+  </script>
+</body>
+</html>
